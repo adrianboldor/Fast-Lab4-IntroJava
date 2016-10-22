@@ -10,11 +10,20 @@ public class SkeletonJava {
 
     // GUI
     public static int readIntGUI(String label) {
+        try{
         String input = JOptionPane.showInputDialog(null,
                 label);
+
         int returnValue = Integer.parseInt(input);
         return returnValue;
+        }catch(NumberFormatException e ){
+            SkeletonJava.printGUI("Nu ai introdus un numar intreg");
+
+            System.exit(1);
+            return 0;
+        }
     }
+
 
     public static double readDoubleGUI(String label) {
         String input = JOptionPane.showInputDialog(null,
